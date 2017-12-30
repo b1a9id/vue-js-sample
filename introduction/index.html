@@ -8,19 +8,31 @@
 </head>
 <body>
     <div id="app">
-        {{message}}
-        <p v-bind:title="msg">
+        {{msg1}}
+        <p v-bind:title="msg2">
             Hover your mouse over me for a few seconds
             to see my dynamically bound title!
         </p>
+        <p v-if="seen">Now you see me</p>
+        <div>
+            <ol>
+                <li v-for="todo in todos">{{ todo.text }}</li>
+            </ol>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script>
         var app = new Vue({
             el: '#app',
             data: {
-                message: 'Hello Vue!',
-                msg: 'You loaded this page on ' + new Date().toLocaleDateString()
+                msg1: 'Hello Vue!',
+                msg2: 'You loaded this page on ' + new Date().toLocaleDateString(),
+                seen: true,
+                todos: [
+                    { text: 'Learn JavaScript' },
+                    { text: 'Learn Vue' },
+                    { text: 'Build something awesome' }
+                ]
             }
         })
     </script>
