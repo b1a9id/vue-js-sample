@@ -19,9 +19,27 @@
                 <li v-for="todo in todos">{{ todo.text }}</li>
             </ol>
         </div>
+        <div>
+            <p>{{ msg3 }}</p>
+            <button v-on:click="reverseMessage">Reverse Message</button>
+        </div>
+        <div>
+            <p>{{ msg4 }}</p>
+            <input v-model="msg4" />
+        </div>
+        <div>
+            <ol>
+                <todo-item v-for="item in groceryList" v-bind:todo="item"></todo-item>
+            </ol>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script>
+        Vue.component('todo-item', {
+            props: ['todo'],
+            template: '<li>{{ todo.text }}</li>'
+        })
+
         var app = new Vue({
             el: '#app',
             data: {
@@ -32,7 +50,19 @@
                     { text: 'Learn JavaScript' },
                     { text: 'Learn Vue' },
                     { text: 'Build something awesome' }
+                ],
+                msg3: 'Hello Vue!',
+                msg4: 'Hello Vue!',
+                groceryList: [
+                    { id: 0, text: 'Vegetables' },
+                    { id: 1, text: 'Cheese' },
+                    { id: 2, text: 'Whatever else humans are supposed to eat' }
                 ]
+            },
+            methods: {
+                reverseMessage: function() {
+                    this.msg3 = this.msg3.split('').reverse().join('')
+                }
             }
         })
     </script>
