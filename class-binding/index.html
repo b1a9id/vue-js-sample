@@ -9,6 +9,7 @@
 <body>
     <div id="app" class="static" v-bind:class="{ active: isActive, 'text-danger':hasError }">
         <p v-bind:class="classObject"></p>
+        <p v-bind:class="[{ active: isActive }, errorClass]"></p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -18,6 +19,7 @@
             data: {
                 isActive: true,
                 hasError: false,
+                errorClass: 'text-danger',
                 classObject: {
                     active: true,
                     'text-danger': false
