@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<div id="exp-1">
+		<ul>
+			<li v-for="(item, index) in items"> {{ parentMessage }} - {{ index }} - {{ item.message }}</li>
+		</ul>
+		<ul>
+			<li v-for="(value,key) in object">{{key}} : {{ value }}</li>
+		</ul>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script>
+		var exp1 = new Vue({
+			el: '#exp-1',
+			data: {
+				parentMessage: 'Parent',
+				items: [
+					{ message: 'FOO' },
+					{ message: 'BAR' }
+				],
+				object: {
+					firstName: 'John',
+					lastName: 'Doe',
+					age: 30
+				}
+			}
+		})
+	</script>
+</body>
+</html>
