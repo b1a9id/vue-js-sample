@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<div id="example-1">
+		<input v-model="message" placeholder="edit me">
+		<p>Message is: {{ message }}</p>
+		<br>
+
+		<input type="checkbox" id="checkbox" v-model="checked">
+		<label for="checkbox">{{ checked }}</label>
+		<br>
+
+		<input type="checkbox" id="taro" value="taro" v-model="checkedNames">
+		<label for="taro">Taro</label>
+		<input type="checkbox" id="hanako" value="hanako" v-model="checkedNames">
+		<label for="hanako">Hanako</label>
+		<input type="checkbox" id="jiro" value="jiro" v-model="checkedNames">
+		<label for="jiro">Jiro</label>
+		<br>
+		<span>Checked names: {{ checkedNames }}</span>
+		<br>
+
+		<select v-model="selected">
+			<option disabled value="">Please select one</option>
+			<option>A</option>
+			<option>B</option>
+			<option>C</option>
+		</select>
+		<span>Selected: {{ selected }}</span>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script>
+		var example1 = new Vue({
+			el: '#example-1',
+			data: {
+				message: '',
+				checked: '',
+				checkedNames: [],
+				selected: ''
+			}
+		})
+	</script>
+</body>
+</html>
